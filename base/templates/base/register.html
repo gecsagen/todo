@@ -1,0 +1,20 @@
+{% extends 'base/main.html' %}
+{% block content %}
+    <div class="header-bar">
+        <h1>Зарегистрироваться</h1>
+    </div>
+
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <label>{{ form.username.label }}</label>
+            {{ form.username }}
+            <label>{{ form.password1.label }}</label>
+            {{ form.password1 }}
+            <label>{{ form.password2.label }}</label>
+            {{ form.password2 }}
+            <input id="button-register" class="button" type="submit" value="Зарегистрироваться">
+        </form>
+        <p>У вас уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+    </div>
+{% endblock content %}
